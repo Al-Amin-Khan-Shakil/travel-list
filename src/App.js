@@ -1,7 +1,15 @@
+import Header from './components/Header';
+import Form from './components/Form';
+import PackingList from './components/PackingList';
+import Footer from './components/Footer';
+
 function App() {
   return (
     <div className="App">
-      <h1>Hello World!</h1>
+      <Header />
+      <Form />
+      <PackingList />
+      <Footer />
     </div>
   );
 }
