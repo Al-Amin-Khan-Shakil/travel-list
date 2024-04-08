@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { PropTypes } from 'prop-types';
 
-export default function Form({ onAddItmes }) {
+export default function Form({ onAddItems }) {
   const [description, setDescription] = useState('');
   const [quantity, setQuantity] = useState(1);
 
@@ -18,7 +18,9 @@ export default function Form({ onAddItmes }) {
       id: uuidv4(),
     };
 
-    onAddItmes(newItem);
+    onAddItems(newItem);
+    setDescription('');
+    setQuantity(1);
   };
 
   return (
@@ -46,5 +48,5 @@ export default function Form({ onAddItmes }) {
 }
 
 Form.propTypes = {
-  onAddItmes: PropTypes.func.isRequired,
+  onAddItems: PropTypes.func.isRequired,
 };

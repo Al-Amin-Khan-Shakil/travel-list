@@ -25,7 +25,7 @@ function App() {
     <div className="App">
       <Header />
       <Form onAddItems={handleAddItems} items />
-      <PackingList />
+      <PackingList items={items} />
       <Footer />
     </div>
   );
