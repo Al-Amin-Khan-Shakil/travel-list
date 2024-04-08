@@ -21,11 +21,24 @@ function App() {
     localStorage.setItem('items', JSON.stringify(updatedItems));
   };
 
+  const handleToggleItems = (id) => {
+    const updatedItems = items.map((item) => {
+      if (item.id === id) {
+        return { ...item, packed: !item.packed };
+      }
+
+      return item;
+    });
+
+    setItems(updatedItems);
+    localStorage.setItem('items', JSON.stringify(updatedItems));
+  };
+
   return (
     <div className="App">
       <Header />
-      <Form onAddItems={handleAddItems} items />
-      <PackingList items={items} />
+      <Form onAddItems={handleAddItems} />
+      <PackingList items={items} onToggleItem={handleToggleItems} />
       <Footer />
     </div>
   );
