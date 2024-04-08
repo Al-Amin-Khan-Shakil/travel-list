@@ -15,10 +15,13 @@ function App() {
     }
   }, []);
 
+  useEffect(() => {
+    localStorage.setItem('items', JSON.stringify(items));
+  }, [items]);
+
   const handleAddItems = (newItem) => {
     const updatedItems = [...items, newItem];
     setItems(updatedItems);
-    localStorage.setItem('items', JSON.stringify(updatedItems));
   };
 
   const handleToggleItems = (id) => {
@@ -31,14 +34,21 @@ function App() {
     });
 
     setItems(updatedItems);
-    localStorage.setItem('items', JSON.stringify(updatedItems));
+  };
+
+  const handleDeleteItem = (id) => {
+    setItems((items) => items.filter((item) => item.id !== id));
   };
 
   return (
     <div className="App">
       <Header />
       <Form onAddItems={handleAddItems} />
-      <PackingList items={items} onToggleItem={handleToggleItems} />
+      <PackingList
+        items={items}
+        onToggleItem={handleToggleItems}
+        onDeleteItem={handleDeleteItem}
+      />
       <Footer />
     </div>
   );

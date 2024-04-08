@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 export default function Item({
   item,
   onToggleItem,
+  onDeleteItem,
 }) {
   return (
     <li>
@@ -17,7 +18,7 @@ export default function Item({
         {item.description}
       </span>
       {' '}
-      <button type="button">❌</button>
+      <button type="button" onClick={() => onDeleteItem(item.id)}>❌</button>
     </li>
   );
 }
@@ -31,4 +32,5 @@ Item.propTypes = {
     packed: PropTypes.bool.isRequired,
   }).isRequired,
   onToggleItem: PropTypes.func.isRequired,
+  onDeleteItem: PropTypes.func.isRequired,
 };
