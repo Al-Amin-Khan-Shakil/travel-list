@@ -5,7 +5,8 @@ import PackingList from './components/PackingList';
 import Footer from './components/Footer';
 
 function App() {
-  const [items, setItems] = useState([]);
+  const savedItems = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
+  const [items, setItems] = useState(savedItems);
 
   useEffect(() => {
     const storedItems = localStorage.getItem('items');
@@ -49,7 +50,7 @@ function App() {
         onToggleItem={handleToggleItems}
         onDeleteItem={handleDeleteItem}
       />
-      <Footer />
+      <Footer items={items} />
     </div>
   );
 }
