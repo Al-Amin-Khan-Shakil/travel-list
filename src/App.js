@@ -50,7 +50,7 @@ function App() {
         onToggleItem={handleToggleItems}
         onDeleteItem={handleDeleteItem}
       />
-      <Footer />
+      <Footer items={items} />
     </div>
   );
 }

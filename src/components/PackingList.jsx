@@ -18,7 +18,7 @@ export default function PackingList({
           />
         ))
       ) : (
-        <p>Add Items you want to pack.😊</p>
+        <p>Enter item details and click 'Add' to include them in your packing list.😊</p>
       )}
     </ul>
   );
