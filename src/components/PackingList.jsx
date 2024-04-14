@@ -26,7 +26,7 @@ export default function PackingList({
   }
 
   return (
-    <div>
+    <div className="list">
       <ul>
         {sortedItems.length !== 0 ? (
           sortedItems.map((item) => (
@@ -42,7 +42,7 @@ export default function PackingList({
         )}
       </ul>
 
-      <div>
+      <div className="actions">
         <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
           <option value="input">Sort by input order</option>
           <option value="description">Sort by description</option>
