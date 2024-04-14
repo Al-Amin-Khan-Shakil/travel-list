@@ -14,7 +14,7 @@ export default function Footer({ items }) {
   const percentage = Math.round((numPacked / numItems) * 100);
 
   return (
-    <footer>
+    <footer className="stats">
       <em>
         {percentage === 100
           ? 'You got everything! Ready to go ✈️'
