@@ -6,6 +6,7 @@ export default function PackingList({
   items,
   onToggleItem,
   onDeleteItem,
+  onClearList,
 }) {
   const [sortBy, setSortBy] = useState('input');
 
@@ -42,13 +43,19 @@ export default function PackingList({
         )}
       </ul>
 
-      <div className="actions">
-        <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
-          <option value="input">Sort by input order</option>
-          <option value="description">Sort by description</option>
-          <option value="packed">Sort by packed status</option>
-        </select>
-      </div>
+      {
+        sortedItems.length !== 0 ? (
+          <div className="actions">
+            <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
+              <option value="input">Sort by input order</option>
+              <option value="description">Sort by description</option>
+              <option value="packed">Sort by packed status</option>
+            </select>
+            <button type="button" onClick={onClearList}>Clear list</button>
+          </div>
+        ) : ''
+      }
+
     </div>
   );
 }
@@ -64,4 +71,5 @@ PackingList.propTypes = {
   ).isRequired,
   onToggleItem: PropTypes.func.isRequired,
   onDeleteItem: PropTypes.func.isRequired,
+  onClearList: PropTypes.func.isRequired,
 };

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 export default function Footer({ items }) {
   if (items.length === 0) {
     return (
-      <footer>
+      <footer className="stats">
         <em>Begin including items in your packing list for a smooth journey ahead! 🚀</em>
       </footer>
     );
